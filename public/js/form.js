@@ -15,4 +15,4 @@ router.put('/:id', homeRoutes.putRecord);
 router.delete('/:id', homeRoutes.deleteRecord);
 
 // Export router
-module.exports = router
+module.exports = router;
