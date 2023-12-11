@@ -38,11 +38,11 @@
       <label for="category" class="col-2 col-form-label">Category*</label>
       <select name="category" id="category" class="col-10 custom-select text-secondary" required>
         <option value="" selected>Categories</option>
-        <option value="Household" {{isSelected record.category "Household"}}>Household</option>
-        <option value="Transportation" {{isSelected record.category "Transportation"}}>Transportation</option>
-        <option value="Entertainment" {{isSelected record.category "Entertainment"}}>Entertainment</option>
-        <option value="Eating Out"{{isSelected record.category "Eating Out"}}> Eating Out </option>
-        <option value="Other" {{isSelected record.category "Other"}}>Other</option>
+        <option value="Household" {{isSelected controllers.category "Household"}}selected>Household</option>
+        <option value="Transportation" {{isSelected controllers.category "Transportation"}}>Transportation</option>
+        <option value="Entertainment" {{isSelected controllers.category "Entertainment"}}>Entertainment</option>
+        <option value="Eating Out"{{isSelected controllers.category "Eating Out"}}> Eating Out </option>
+        <option value="Other" {{isSelected controllers.category "Other"}}>Other</option>
       </select>
       <div class="valid-feedback col-10 p-0">
         The format is correct!
@@ -66,7 +66,7 @@
       <div class="col-2"></div>
       <div class="col-10 p-0 mt-1">
         {{#if record}}
-        <input type="submit" value=”sending” class="btn btn-info btn-block">
+        <input type="submit" value="submit" class="btn btn-info btn-block">
         {{else}}
         <input type="submit" value="New Expense" class="btn btn-info btn-block">
         {{/if}}
