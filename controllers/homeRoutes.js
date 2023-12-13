@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 //route to homepage
 router.get('/', async (req,res) => {
-  try {
+  try { 
     res.render('homepage');
   } catch(err) {
     res.status(500).json(err);
@@ -34,10 +34,15 @@ router.get('/signUp', async (req, res) => {
 router.get('/login', (req, res) => {
 
   if (req.session.logged_in) {
+    
+    
     res.redirect('form');
     return;
   }
   res.render('login');
+  
+  
+
 });
 
 module.exports = router;
