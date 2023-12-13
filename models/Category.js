@@ -1,8 +1,22 @@
-const db = require('../db');
-const Category = require('../category');
-const SEED_CATEGORY = [
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+
+class Category extends Model{}
+
+Category.init(
   {
-    name: 'Household',
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name:{
+      type: DataTypes.STRING,
+      allowNull: false,
+   },
+    'Household',
   },
   {
     name: 'Transportation',
@@ -20,16 +34,18 @@ const SEED_CATEGORY = [
     name: 'School',
   },
   {
-    name: 'Other',
+    name: 'Misc.',
   },
 ];
 
 const CATEGORY_ICON = {
-  Household: 'fa-solid fa-house',
-  Transportation: 'fa-solid fa-van-shuttle',
-  Entertainment: 'fa-solid fa-face-grin-beam',
-  Eating Out: 'fa-solid fa-utensils',
-  Other: 'fa-solid fa-pen',
+  Household: '',
+  Utilities: '',
+  School: '',
+  Transportation: '',
+  Entertainment: '',
+  Eating Out: '',
+  Misc.: '',
 };
 
 db.once('open', async () => {

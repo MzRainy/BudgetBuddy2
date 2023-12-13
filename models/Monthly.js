@@ -21,7 +21,7 @@ addTransaction: function(event) {
 
     const category = document.getElementById('category').ariaValueMax;
     const amount = parseFloat(document.getElementById('amount').value);
-    const type = document.getElementById('type').value;
+    const name = document.getElementById('name').value;
     
     if (type === 'Income') {
         this.incomeData[category] = (this.incomeData[category] || 0) + amount;   

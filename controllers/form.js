@@ -1,5 +1,5 @@
 const db = require('db');
-const Schema = db.Schema
+const Schema = db.Schema;
 
 const recordSchema = new Schema({
   name: {
@@ -24,6 +24,6 @@ const recordSchema = new Schema({
     index: true,
     required: true
   }
-})
+});
 
-module.exports = db.model('Record', recordSchema)
+module.exports = db.model('Record', recordSchema);
