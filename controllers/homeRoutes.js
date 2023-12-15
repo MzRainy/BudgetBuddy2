@@ -11,14 +11,7 @@ router.get('/', async (req,res) => {
     res.status(500).json(err);
   }
 });
-//route to application page
-router.get('/form', withAuth, async (req, res) => {
-  try {
-    res.render('form');
-  } catch(err) {
-    res.status(500).json(err);
-  }
-});
+
 
 //route to sign up page
 router.get('/signUp', async (req, res) => {
@@ -28,6 +21,38 @@ router.get('/signUp', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//route to application page
+router.get('/form', withAuth, async (req, res) => {
+  try {
+    res.render('form');
+  } catch(err) {
+    res.status(500).json(err);
+  }
+});
+
+//route to profile page (userInfo display)
+router.get('profile', withAuth, async (req, res) => {
+  try {
+    //Get the logged in user based on Session ID
+    const userData = await User.findByPk(req.session.user_id,{
+      attributes: {exclude: ['password']},
+    });
+
+    const expensePromise = Expsense.findAll({
+      where: {user_id: req.session.user_id},
+      attributes: [
+        "id",
+        "amount",
+        "category_id",
+
+      ],
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+ 
 
 
 //route to login page

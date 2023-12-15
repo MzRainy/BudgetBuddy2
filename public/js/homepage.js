@@ -11,7 +11,6 @@ function loginDirect (){
 }
 
 function signUpDirect (){
-    console.log("this shoudld be working ");
     document.location.replace('/signUp');
 }
 
