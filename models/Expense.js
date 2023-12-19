@@ -12,7 +12,8 @@ Expense.init(
             autoIncrement: true,
         },
         amount: {
-            type: DataTypes.DECIMAL,
+            type: DataTypes.DECIMAL(10,2),
+            defaultValue: 0.00,
         },
         category_id: {
             type: DataTypes.INTEGER,
@@ -22,10 +23,10 @@ Expense.init(
             }
         },
         user_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
-                model: 'user',
-                key: 'id',
+              model: 'user',
+              key: 'id',
             }
         },
     },
